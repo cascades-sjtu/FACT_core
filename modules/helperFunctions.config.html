@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>helperFunctions.object_storage module &mdash; FACT  documentation</title>
+  <title>helperFunctions.config module &mdash; FACT  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -19,8 +19,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="helperFunctions.pdf module" href="helperFunctions.pdf.html" />
-    <link rel="prev" title="helperFunctions.object_conversion module" href="helperFunctions.object_conversion.html" /> 
+    <link rel="next" title="helperFunctions.database module" href="helperFunctions.database.html" />
+    <link rel="prev" title="helperFunctions.compare_sets module" href="helperFunctions.compare_sets.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -53,7 +53,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="helperFunctions.html">helperFunctions</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="helperFunctions.compare_sets.html">helperFunctions.compare_sets module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="helperFunctions.config.html">helperFunctions.config module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">helperFunctions.config module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="helperFunctions.database.html">helperFunctions.database module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="helperFunctions.docker.html">helperFunctions.docker module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="helperFunctions.fileSystem.html">helperFunctions.fileSystem module</a></li>
@@ -64,7 +64,7 @@
 <li class="toctree-l2"><a class="reference internal" href="helperFunctions.mongo_config_parser.html">helperFunctions.mongo_config_parser module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="helperFunctions.mongo_task_conversion.html">helperFunctions.mongo_task_conversion module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="helperFunctions.object_conversion.html">helperFunctions.object_conversion module</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">helperFunctions.object_storage module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helperFunctions.object_storage.html">helperFunctions.object_storage module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="helperFunctions.pdf.html">helperFunctions.pdf module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="helperFunctions.plugin.html">helperFunctions.plugin module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="helperFunctions.process.html">helperFunctions.process module</a></li>
@@ -95,9 +95,9 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="helperFunctions.html">helperFunctions</a> &raquo;</li>
-      <li>helperFunctions.object_storage module</li>
+      <li>helperFunctions.config module</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/modules/helperFunctions.object_storage.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/modules/helperFunctions.config.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -105,49 +105,52 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-helperFunctions.object_storage">
-<span id="helperfunctions-object-storage-module"></span><h1>helperFunctions.object_storage module<a class="headerlink" href="#module-helperFunctions.object_storage" title="Permalink to this headline"></a></h1>
+  <section id="module-helperFunctions.config">
+<span id="helperfunctions-config-module"></span><h1>helperFunctions.config module<a class="headerlink" href="#module-helperFunctions.config" title="Permalink to this headline"></a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="helperFunctions.object_storage.update_included_files">
-<span class="sig-prename descclassname"><span class="pre">helperFunctions.object_storage.</span></span><span class="sig-name descname"><span class="pre">update_included_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old_object</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#helperFunctions.object_storage.update_included_files" title="Permalink to this definition"></a></dt>
-<dd><p>Get updated list of included files of an object.
-This is done by joining newfound included files with already found included files.</p>
+<dt class="sig sig-object py" id="helperFunctions.config.get_config_dir">
+<span class="sig-prename descclassname"><span class="pre">helperFunctions.config.</span></span><span class="sig-name descname"><span class="pre">get_config_dir</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#helperFunctions.config.get_config_dir" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the absolute path of the config directory</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="helperFunctions.config.get_temp_dir_path">
+<span class="sig-prename descclassname"><span class="pre">helperFunctions.config.</span></span><span class="sig-name descname"><span class="pre">get_temp_dir_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#helperFunctions.config.get_temp_dir_path" title="Permalink to this definition"></a></dt>
+<dd><p>Returns temp_dir_path from the section “data_storage” if it is a valid directory.
+If it does not exist it will be created.
+If the directory does not exist and can not be created or if config is None
+then fallback to “/tmp”</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>new_object</strong> (<a class="reference internal" href="objects.file.html#objects.file.FileObject" title="objects.file.FileObject"><em>objects.file.FileObject</em></a>) – Current file object with newly discovered included files</p></li>
-<li><p><strong>old_object</strong> (<em>dict</em>) – Current database state of same object with existing included files</p></li>
-</ul>
+<dd class="field-odd"><p><strong>config</strong> (<em>Optional</em><em>[</em><em>configparser.ConfigParser</em><em>]</em>) – The FACT configuration</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>a list containing all included files</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>list</p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="helperFunctions.object_storage.update_virtual_file_path">
-<span class="sig-prename descclassname"><span class="pre">helperFunctions.object_storage.</span></span><span class="sig-name descname"><span class="pre">update_virtual_file_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old_object</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#helperFunctions.object_storage.update_virtual_file_path" title="Permalink to this definition"></a></dt>
-<dd><p>Get updated dict of virtual file paths.
-A file object can exist only once, multiple times inside the same firmware (e.g. sym links) or
-even in multiple different firmware images (e.g. common files across patch levels).
-Thus updating the virtual file paths dict requires some logic.
-This function returns the combined dict across newfound virtual paths and existing ones.</p>
+<dt class="sig sig-object py" id="helperFunctions.config.load_config">
+<span class="sig-prename descclassname"><span class="pre">helperFunctions.config.</span></span><span class="sig-name descname"><span class="pre">load_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_file_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#helperFunctions.config.load_config" title="Permalink to this definition"></a></dt>
+<dd><p>loads config of CONFIG_DIR/config_file_name
+Returns config object</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="helperFunctions.config.read_list_from_config">
+<span class="sig-prename descclassname"><span class="pre">helperFunctions.config.</span></span><span class="sig-name descname"><span class="pre">read_list_from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#helperFunctions.config.read_list_from_config" title="Permalink to this definition"></a></dt>
+<dd><p>Parses a comma separated list in section <cite>section</cite> with key <cite>key</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>new_object</strong> (<a class="reference internal" href="objects.file.html#objects.file.FileObject" title="objects.file.FileObject"><em>objects.file.FileObject</em></a>) – Current file object with newly discovered virtual paths</p></li>
-<li><p><strong>old_object</strong> (<em>dict</em>) – Current database state of same object with existing virtual paths</p></li>
+<li><p><strong>config_file</strong> (<em>configparser.ConfigParser</em>) – The FACT configuration</p></li>
+<li><p><strong>section</strong> (<em>str</em>) – The section to read from</p></li>
+<li><p><strong>key</strong> (<em>str</em>) – The key holding the list</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>a dict containing all virtual paths</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>dict</p>
+<dd class="field-even"><p>A list holding the values defined in the config</p>
 </dd>
 </dl>
 </dd></dl>
@@ -158,8 +161,8 @@ This function returns the combined dict across newfound virtual paths and existi
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="helperFunctions.object_conversion.html" class="btn btn-neutral float-left" title="helperFunctions.object_conversion module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="helperFunctions.pdf.html" class="btn btn-neutral float-right" title="helperFunctions.pdf module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="helperFunctions.compare_sets.html" class="btn btn-neutral float-left" title="helperFunctions.compare_sets module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="helperFunctions.database.html" class="btn btn-neutral float-right" title="helperFunctions.database module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

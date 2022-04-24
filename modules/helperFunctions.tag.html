@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>helperFunctions.object_storage module &mdash; FACT  documentation</title>
+  <title>helperFunctions.tag module &mdash; FACT  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -19,8 +19,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="helperFunctions.pdf module" href="helperFunctions.pdf.html" />
-    <link rel="prev" title="helperFunctions.object_conversion module" href="helperFunctions.object_conversion.html" /> 
+    <link rel="next" title="helperFunctions.uid module" href="helperFunctions.uid.html" />
+    <link rel="prev" title="helperFunctions.program_setup module" href="helperFunctions.program_setup.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -64,12 +64,12 @@
 <li class="toctree-l2"><a class="reference internal" href="helperFunctions.mongo_config_parser.html">helperFunctions.mongo_config_parser module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="helperFunctions.mongo_task_conversion.html">helperFunctions.mongo_task_conversion module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="helperFunctions.object_conversion.html">helperFunctions.object_conversion module</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">helperFunctions.object_storage module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helperFunctions.object_storage.html">helperFunctions.object_storage module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="helperFunctions.pdf.html">helperFunctions.pdf module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="helperFunctions.plugin.html">helperFunctions.plugin module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="helperFunctions.process.html">helperFunctions.process module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="helperFunctions.program_setup.html">helperFunctions.program_setup module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="helperFunctions.tag.html">helperFunctions.tag module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">helperFunctions.tag module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="helperFunctions.uid.html">helperFunctions.uid module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="helperFunctions.web_interface.html">helperFunctions.uid web_interface</a></li>
 <li class="toctree-l2"><a class="reference internal" href="helperFunctions.yara_binary_search.html">helperFunctions.yara_binary_search module</a></li>
@@ -95,9 +95,9 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="helperFunctions.html">helperFunctions</a> &raquo;</li>
-      <li>helperFunctions.object_storage module</li>
+      <li>helperFunctions.tag module</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/modules/helperFunctions.object_storage.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/modules/helperFunctions.tag.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -105,51 +105,58 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-helperFunctions.object_storage">
-<span id="helperfunctions-object-storage-module"></span><h1>helperFunctions.object_storage module<a class="headerlink" href="#module-helperFunctions.object_storage" title="Permalink to this headline"></a></h1>
-<dl class="py function">
-<dt class="sig sig-object py" id="helperFunctions.object_storage.update_included_files">
-<span class="sig-prename descclassname"><span class="pre">helperFunctions.object_storage.</span></span><span class="sig-name descname"><span class="pre">update_included_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old_object</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#helperFunctions.object_storage.update_included_files" title="Permalink to this definition"></a></dt>
-<dd><p>Get updated list of included files of an object.
-This is done by joining newfound included files with already found included files.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>new_object</strong> (<a class="reference internal" href="objects.file.html#objects.file.FileObject" title="objects.file.FileObject"><em>objects.file.FileObject</em></a>) – Current file object with newly discovered included files</p></li>
-<li><p><strong>old_object</strong> (<em>dict</em>) – Current database state of same object with existing included files</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>a list containing all included files</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>list</p>
-</dd>
-</dl>
-</dd></dl>
+  <section id="module-helperFunctions.tag">
+<span id="helperfunctions-tag-module"></span><h1>helperFunctions.tag module<a class="headerlink" href="#module-helperFunctions.tag" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="helperFunctions.tag.TagColor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">helperFunctions.tag.</span></span><span class="sig-name descname"><span class="pre">TagColor</span></span><a class="headerlink" href="#helperFunctions.tag.TagColor" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class containing the different colors the tags may have. <cite>TagColor.ALL</cite> contains a list of all colors.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="helperFunctions.tag.TagColor.ALL">
+<span class="sig-name descname"><span class="pre">ALL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['secondary',</span> <span class="pre">'primary',</span> <span class="pre">'success',</span> <span class="pre">'info',</span> <span class="pre">'warning',</span> <span class="pre">'danger',</span> <span class="pre">'light',</span> <span class="pre">'dark']</span></em><a class="headerlink" href="#helperFunctions.tag.TagColor.ALL" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="helperFunctions.object_storage.update_virtual_file_path">
-<span class="sig-prename descclassname"><span class="pre">helperFunctions.object_storage.</span></span><span class="sig-name descname"><span class="pre">update_virtual_file_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old_object</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#helperFunctions.object_storage.update_virtual_file_path" title="Permalink to this definition"></a></dt>
-<dd><p>Get updated dict of virtual file paths.
-A file object can exist only once, multiple times inside the same firmware (e.g. sym links) or
-even in multiple different firmware images (e.g. common files across patch levels).
-Thus updating the virtual file paths dict requires some logic.
-This function returns the combined dict across newfound virtual paths and existing ones.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>new_object</strong> (<a class="reference internal" href="objects.file.html#objects.file.FileObject" title="objects.file.FileObject"><em>objects.file.FileObject</em></a>) – Current file object with newly discovered virtual paths</p></li>
-<li><p><strong>old_object</strong> (<em>dict</em>) – Current database state of same object with existing virtual paths</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>a dict containing all virtual paths</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>dict</p>
-</dd>
-</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="helperFunctions.tag.TagColor.BLUE">
+<span class="sig-name descname"><span class="pre">BLUE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'primary'</span></em><a class="headerlink" href="#helperFunctions.tag.TagColor.BLUE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="helperFunctions.tag.TagColor.DARK">
+<span class="sig-name descname"><span class="pre">DARK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'dark'</span></em><a class="headerlink" href="#helperFunctions.tag.TagColor.DARK" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="helperFunctions.tag.TagColor.GRAY">
+<span class="sig-name descname"><span class="pre">GRAY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'secondary'</span></em><a class="headerlink" href="#helperFunctions.tag.TagColor.GRAY" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="helperFunctions.tag.TagColor.GREEN">
+<span class="sig-name descname"><span class="pre">GREEN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'success'</span></em><a class="headerlink" href="#helperFunctions.tag.TagColor.GREEN" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="helperFunctions.tag.TagColor.LIGHT">
+<span class="sig-name descname"><span class="pre">LIGHT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'light'</span></em><a class="headerlink" href="#helperFunctions.tag.TagColor.LIGHT" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="helperFunctions.tag.TagColor.LIGHT_BLUE">
+<span class="sig-name descname"><span class="pre">LIGHT_BLUE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'info'</span></em><a class="headerlink" href="#helperFunctions.tag.TagColor.LIGHT_BLUE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="helperFunctions.tag.TagColor.ORANGE">
+<span class="sig-name descname"><span class="pre">ORANGE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'warning'</span></em><a class="headerlink" href="#helperFunctions.tag.TagColor.ORANGE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="helperFunctions.tag.TagColor.RED">
+<span class="sig-name descname"><span class="pre">RED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'danger'</span></em><a class="headerlink" href="#helperFunctions.tag.TagColor.RED" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 </section>
@@ -158,8 +165,8 @@ This function returns the combined dict across newfound virtual paths and existi
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="helperFunctions.object_conversion.html" class="btn btn-neutral float-left" title="helperFunctions.object_conversion module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="helperFunctions.pdf.html" class="btn btn-neutral float-right" title="helperFunctions.pdf module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="helperFunctions.program_setup.html" class="btn btn-neutral float-left" title="helperFunctions.program_setup module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="helperFunctions.uid.html" class="btn btn-neutral float-right" title="helperFunctions.uid module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
