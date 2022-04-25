@@ -5,4 +5,4 @@ distro
 python-magic
 requests
 
-git+https://github.com/fkie-cad/common_helper_files.git
+git+https://hub.fastgit.xyz/fkie-cad/common_helper_files.git

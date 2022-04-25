@@ -644,10 +644,10 @@
         "references": {
           "reference_data": [
             {
-              "name": "https://github.com/tensorflow/tensorflow/blob/master/tensorflow/security/advisory/tfsa-2018-003.md",
+              "name": "https://hub.fastgit.xyz/tensorflow/tensorflow/blob/master/tensorflow/security/advisory/tfsa-2018-003.md",
               "refsource": "CONFIRM",
               "tags": [],
-              "url": "https://github.com/tensorflow/tensorflow/blob/master/tensorflow/security/advisory/tfsa-2018-003.md"
+              "url": "https://hub.fastgit.xyz/tensorflow/tensorflow/blob/master/tensorflow/security/advisory/tfsa-2018-003.md"
             }
           ]
         }

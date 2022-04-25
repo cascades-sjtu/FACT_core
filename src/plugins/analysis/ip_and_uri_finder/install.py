@@ -27,12 +27,13 @@ class IpAndUriFinderInstaller(AbstractPluginInstaller):
                 return
             Path(f'{self.base_path}/bin').mkdir(exist_ok=True)
 
-            url_geolite = 'https://github.com/codeqq/geolite2-city-mirror/raw/master/GeoLite2-City.tar.gz'
+            url_geolite = 'https://hub.fastgit.xyz/codeqq/geolite2-city-mirror/raw/master/GeoLite2-City.tar.gz'
             dest_geolite = f'{tmp_dir}/GeoLite2-City.tar.gz'
             urllib.request.urlretrieve(url_geolite, dest_geolite)
 
             run_cmd_with_logging(f'tar -xf {dest_geolite} -C {tmp_dir}')
-            run_cmd_with_logging(f'mv {tmp_dir}/GeoLite2-City_20191029 {self.base_path}/bin/GeoLite2-City')
+            run_cmd_with_logging(
+                f'mv {tmp_dir}/GeoLite2-City_20191029 {self.base_path}/bin/GeoLite2-City')
 
 
 # Alias for generic use

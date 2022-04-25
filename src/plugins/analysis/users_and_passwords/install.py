@@ -26,7 +26,8 @@ class UsersAndPasswordsInstaller(AbstractPluginInstaller):
     def install_system_packages(self):
         super().install_system_packages()
 
-        lshw_process = subprocess.run('lshw -c display'.split(), stdout=PIPE, stderr=PIPE, check=True, universal_newlines=True)
+        lshw_process = subprocess.run(
+            'lshw -c display'.split(), stdout=PIPE, stderr=PIPE, check=True, universal_newlines=True)
         opencl_pkgs = []
         if lshw_process.stdout == 'NVIDIA':
             opencl_pkgs = ['nvidia-opencl-dev']
@@ -35,15 +36,17 @@ class UsersAndPasswordsInstaller(AbstractPluginInstaller):
 
         # Somehow we don't care about opencl on fedora
         if self.distribution != 'fedora':
-            run_cmd_with_logging('sudo apt install -y ' + ' '.join(opencl_pkgs))
+            run_cmd_with_logging('sudo apt install -y ' +
+                                 ' '.join(opencl_pkgs))
 
     def build(self):
-        url_john = 'https://github.com/openwall/john/archive/1.9.0-Jumbo-1.tar.gz'
+        url_john = 'https://hub.fastgit.xyz/openwall/john/archive/1.9.0-Jumbo-1.tar.gz'
         dest_john = '1.9.0-Jumbo-1.tar.gz'
         urllib.request.urlretrieve(url_john, dest_john)
 
         Path('john').mkdir(exist_ok=True)
-        run_cmd_with_logging(f'tar -xf {dest_john} -C john --strip-components 1')
+        run_cmd_with_logging(
+            f'tar -xf {dest_john} -C john --strip-components 1')
 
         os.chdir('john/src')
         run_cmd_with_logging('sudo ./configure -disable-openmp', shell=True)
@@ -59,7 +62,8 @@ class UsersAndPasswordsInstaller(AbstractPluginInstaller):
         dest_10_k_most_common = f'{self.base_path}/internal/passwords/10k-most-common.txt'
         urllib.request.urlretrieve(url_10_k_most_common, dest_10_k_most_common)
         # FIXME This should be imported rather then executed
-        run_cmd_with_logging(f'python3 {self.base_path}/internal/update_password_list.py')
+        run_cmd_with_logging(
+            f'python3 {self.base_path}/internal/update_password_list.py')
 
 
 # Alias for generic use

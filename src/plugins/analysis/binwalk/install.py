@@ -23,7 +23,7 @@ class BinwalkInstaller(AbstractPluginInstaller):
     base_path = Path(__file__).resolve().parent
 
     def build(self):
-        url_binwalk = f'https://github.com/ReFirmLabs/binwalk/archive/refs/tags/v{BINWALK_VERSION}.tar.gz'
+        url_binwalk = f'https://hub.fastgit.xyz/ReFirmLabs/binwalk/archive/refs/tags/v{BINWALK_VERSION}.tar.gz'
         dest_binwalk = f'binwalk-v{BINWALK_VERSION}.tar.gz'
         urllib.request.urlretrieve(url_binwalk, dest_binwalk)
 

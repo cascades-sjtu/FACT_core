@@ -1,2 +1,2 @@
-git+https://github.com/fkie-cad/common_analysis_oms.git
+git+https://hub.fastgit.xyz/fkie-cad/common_analysis_oms.git
 

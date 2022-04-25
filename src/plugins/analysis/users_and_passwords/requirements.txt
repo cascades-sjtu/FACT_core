@@ -1,1 +1,1 @@
-git+https://github.com/fkie-cad/common_helper_passwords.git
+git+https://hub.fastgit.xyz/fkie-cad/common_helper_passwords.git

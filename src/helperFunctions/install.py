@@ -26,6 +26,7 @@ class OperateInDirectory:
     :param target_directory: Directory path to use as working directory.
     :param remove: Optional boolean to indicate if `target_directory` should be removed on exit.
     '''
+
     def __init__(self, target_directory: Union[str, Path], remove: bool = False):
         self._current_working_dir = None
         self._target_directory = str(target_directory)
@@ -51,7 +52,8 @@ def remove_folder(folder_name: str):
     try:
         shutil.rmtree(folder_name)
     except PermissionError:
-        logging.debug('Falling back on root permission for deleting {}'.format(folder_name))
+        logging.debug(
+            'Falling back on root permission for deleting {}'.format(folder_name))
         subprocess.run('sudo rm -rf {}'.format(folder_name), shell=True)
     except Exception as exception:
         raise InstallationError(exception) from None
@@ -69,7 +71,8 @@ def log_current_packages(packages: Tuple[str], install: bool = True):
 
 
 def _run_shell_command_raise_on_return_code(command: str, error: str, add_output_on_error=False) -> str:  # pylint: disable=invalid-name
-    cmd_process = subprocess.run(command, shell=True, stdout=PIPE, stderr=STDOUT, universal_newlines=True)
+    cmd_process = subprocess.run(
+        command, shell=True, stdout=PIPE, stderr=STDOUT, universal_newlines=True)
     if cmd_process.returncode != 0:
         if add_output_on_error:
             error = '{}\n{}'.format(error, cmd_process.stdout)
@@ -138,7 +141,8 @@ def check_if_command_in_path(command: str) -> bool:
 
     :param command: Command to check.
     '''
-    command_process = subprocess.run('command -v {}'.format(command), shell=True, stdout=DEVNULL, stderr=DEVNULL, universal_newlines=True)
+    command_process = subprocess.run('command -v {}'.format(
+        command), shell=True, stdout=DEVNULL, stderr=DEVNULL, universal_newlines=True)
     return command_process.returncode == 0
 
 
@@ -165,9 +169,11 @@ def install_github_project(project_path: str, commands: List[str]):
     with OperateInDirectory(folder_name, remove=True):
         error = None
         for command in commands:
-            cmd_process = subprocess.run(command, shell=True, stdout=PIPE, stderr=STDOUT, universal_newlines=True)
+            cmd_process = subprocess.run(
+                command, shell=True, stdout=PIPE, stderr=STDOUT, universal_newlines=True)
             if cmd_process.returncode != 0:
-                error = 'Error while processing github project {}!\n{}'.format(project_path, cmd_process.stdout)
+                error = 'Error while processing github project {}!\n{}'.format(
+                    project_path, cmd_process.stdout)
                 break
 
     if error:
@@ -175,12 +181,15 @@ def install_github_project(project_path: str, commands: List[str]):
 
 
 def _checkout_github_project(github_path: str, folder_name: str):
-    clone_url = 'https://www.github.com/{}'.format(github_path)
-    git_process = subprocess.run('git clone {}'.format(clone_url), shell=True, stdout=DEVNULL, stderr=DEVNULL, universal_newlines=True)
+    clone_url = 'https://hub.fastgit.xyz/{}'.format(github_path)
+    git_process = subprocess.run('git clone {}'.format(
+        clone_url), shell=True, stdout=DEVNULL, stderr=DEVNULL, universal_newlines=True)
     if git_process.returncode != 0:
-        raise InstallationError('Cloning from github failed for project {}\n {}'.format(github_path, clone_url))
+        raise InstallationError(
+            'Cloning from github failed for project {}\n {}'.format(github_path, clone_url))
     if not Path('.', folder_name).exists():
-        raise InstallationError('Repository creation failed on folder {}\n {}'.format(folder_name, clone_url))
+        raise InstallationError(
+            'Repository creation failed on folder {}\n {}'.format(folder_name, clone_url))
 
 
 def load_main_config() -> configparser.ConfigParser:
@@ -192,7 +201,8 @@ def load_main_config() -> configparser.ConfigParser:
     config = configparser.ConfigParser()
     config_path = Path(Path(__file__).parent.parent, 'config', 'main.cfg')
     if not config_path.is_file():
-        raise InstallationError('Could not load config at path {}'.format(config_path))
+        raise InstallationError(
+            'Could not load config at path {}'.format(config_path))
     config.read(str(config_path))
     return config
 
@@ -210,11 +220,13 @@ def run_cmd_with_logging(cmd: str, raise_error=True, shell=False, silent: bool =
     logging.debug(f'Running: {cmd}')
     try:
         cmd_ = cmd if shell else shlex.split(cmd)
-        subprocess.run(cmd_, stdout=PIPE, stderr=PIPE, encoding='UTF-8', shell=shell, check=True, **kwargs)
+        subprocess.run(cmd_, stdout=PIPE, stderr=PIPE,
+                       encoding='UTF-8', shell=shell, check=True, **kwargs)
     except CalledProcessError as err:
         # pylint:disable=no-else-raise
         if not silent:
-            logging.log(logging.ERROR if raise_error else logging.DEBUG, f'Failed to run {cmd}:\n{err.stderr}')
+            logging.log(logging.ERROR if raise_error else logging.DEBUG,
+                        f'Failed to run {cmd}:\n{err.stderr}')
         if raise_error:
             raise err
 
@@ -242,7 +254,8 @@ def check_distribution():
     if distro.id() == 'fedora':
         logging.debug('Fedora detected')
         return 'fedora'
-    logging.critical('Your Distribution ({} {}) is not supported. FACT Installer requires Ubuntu 18.04, 20.04 or compatible!'.format(distro.id(), distro.version()))
+    logging.critical('Your Distribution ({} {}) is not supported. FACT Installer requires Ubuntu 18.04, 20.04 or compatible!'.format(
+        distro.id(), distro.version()))
     sys.exit(1)
 
 
@@ -256,16 +269,19 @@ def install_pip_packages(package_file: Path):
     '''
     for package in read_package_list_from_file(package_file):
         try:
-            command = f'pip3 install -U {package} --prefer-binary'  # prefer binary release to compiling latest
+            # prefer binary release to compiling latest
+            command = f'pip3 install -U {package} --prefer-binary'
             if not is_virtualenv():
                 command = 'sudo -EH ' + command
             run_cmd_with_logging(command, silent=True)
         except CalledProcessError as error:
             # don't fail if a package is already installed using apt and can't be upgraded
             if 'distutils installed' in error.stderr:
-                logging.warning(f'Pip package {package} is already installed with distutils. This may Cause problems:\n{error.stderr}')
+                logging.warning(
+                    f'Pip package {package} is already installed with distutils. This may Cause problems:\n{error.stderr}')
                 continue
-            logging.error(f'Pip package {package} could not be installed:\n{error.stderr}')
+            logging.error(
+                f'Pip package {package} could not be installed:\n{error.stderr}')
             raise
 
 
