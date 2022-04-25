@@ -133,12 +133,12 @@ def _install_css_and_js_files():
         os.makedirs('web_css', exist_ok=True)
         os.makedirs('web_js', exist_ok=True)
 
-        wget_static_web_content('https://hub.fastgit.xyz/vakata/jstree/zipball/3.3.9', '.', [
+        wget_static_web_content('https://github.com/vakata/jstree/zipball/3.3.9', '.', [
                                 'unzip 3.3.9', 'rm 3.3.9', 'rm -rf ./web_js/jstree/vakata*', 'mv vakata* web_js/jstree'], 'jstree')
         wget_static_web_content(
             'https://ajax.proxy.ustclug.org/ajax/libs/angularjs/1.4.8/angular.min.js', '.', [], 'angularJS')
         wget_static_web_content(
-            'https://hub.fastgit.xyz/chartjs/Chart.js/releases/download/v2.3.0/Chart.js', '.', [], 'charts.js')
+            'https://github.com/chartjs/Chart.js/releases/download/v2.3.0/Chart.js', '.', [], 'charts.js')
 
         _build_highlight_js()
 
